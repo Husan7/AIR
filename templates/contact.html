@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+</head>
+<body>
+
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you! Fill out the form below and we'll get back to you soon.</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-message">{{ messages[0][1] }}</div>
+        {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('contact') }}" method="post" class="contact-form">
+            <div class="input-box">
+                <input type="text" name="name" required>
+                <label>Your Name</label>
+            </div>
+            <div class="input-box">
+                <input type="email" name="email" required>
+                <label>Your Email</label>
+            </div>
+            <div class="input-box">
+                <textarea name="message" rows="4" required></textarea>
+                <label>Your Message</label>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <a href="{{ url_for('home') }}" class="back-btn">🏠 Back to Home</a>
+    </div>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

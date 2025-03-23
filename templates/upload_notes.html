@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Notes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='upload.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your Notes</h1>
+        
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-message">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <form action="{{ url_for('upload_notes') }}" method="post" enctype="multipart/form-data">
+            <label for="file-upload" class="custom-file-upload">
+                📂 Choose File
+            </label>
+            <input id="file-upload" type="file" name="file" onchange="updateFileName()">
+            <p id="file-name">No file chosen</p>
+            <button type="submit">Upload</button>
+        </form>
+
+        <h2>Uploaded Notes</h2>
+        <ul>
+            {% for file in files %}
+                <li>
+                    <a href="{{ url_for('uploaded_file', filename=file) }}" target="_blank">{{ file }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{{ url_for('home') }}" class="back-btn">🏠 Back to Home</a>
+    </div>
+
+    <script>
+        function updateFileName() {
+            var input = document.getElementById("file-upload");
+            var fileName = input.files.length > 0 ? input.files[0].name : "No file chosen";
+            document.getElementById("file-name").innerText = fileName;
+        }
+    </script>
+</body>
+</html>
