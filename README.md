@@ -20,4 +20,12 @@ Hygiene & Health Safety
 Problem: Traditional whiteboards, markers, and touchscreen devices are breeding grounds for germs and require frequent cleaning.
 Solution: A fully touchless interface eliminates the need for physical contact, making it ideal for schools, offices, and hospitals where hygiene is crucial.
 
-DEMO:- https://www.youtube.com/watch?v=3i1-15jFTKA
+DEMO:- https://devfolio.co/projects/digital-learning-with-airwriting-technology-487b
+
+## 🎥 Demo Video
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=3i1-15jFTKA">
+    <img src="https://img.youtube.com/vi/3i1-15jFTKA/0.jpg" alt="Watch Demo"/>
+  </a>
+</p>
